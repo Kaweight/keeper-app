@@ -3,9 +3,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import ExportCSV from "./ExportCSV";
+
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [fileName] = useState('Keeper');
 
   function addNote(newNote) {
     setNotes(prevNotes => {
@@ -36,6 +39,7 @@ function App() {
           />
         );
       })}
+      <ExportCSV csvData={notes} fileName={fileName} />
       <Footer />
     </div>
   );
